@@ -6,7 +6,7 @@ table {
 td {
     width: 100px;
     height: 100px;
-    background-color: rgb(147, 248, 248);
+    background-color: rgb(89, 217, 217);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -14,8 +14,9 @@ td {
     font-size: 50px;
     color: white;
     text-shadow: 0px 0px 5px rgb(66, 66, 66);
-    font-weight:1000;
+    font-weight:900;
     box-shadow: 5px 5px 10px 0px  rgb(58, 58, 58);
+    border-radius: 20px;
 }
 
 
@@ -26,6 +27,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .array {
@@ -41,12 +43,22 @@ margin: 0 auto;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(238, 172, 192);
+    background:
+    linear-gradient(217deg, rgba(131, 140, 230, 0.8), rgba(255, 255, 255, 0) 70.71%),
+    linear-gradient(127deg, rgb(227, 97, 154), rgb(0 255 0 / 0%) 70.71%),
+    linear-gradient(336deg, rgba(255, 238, 0, 0.8), rgba(0, 179, 255, 0.574) 70.71%);
     box-shadow: 5px 5px 10px 0px  rgb(58, 58, 58);
+    border-radius: 20px;
+    transition: 0.2s ease-out;
+}
+
+.wrapper:hover {
+   transform: scale(110%);
+   transition: 0.2s ease-out;
 }
 
 .head {
-    background-color: rgb(147, 248, 248);
+    background-color: rgb(89, 217, 217);
     width: 318px;
     height: 50px;
     margin-bottom: 10px;
@@ -60,11 +72,11 @@ margin: 0 auto;
     font-weight: bold;
     display: flex;
     padding-left: 10px;
-    border-radius: 0px 50px 50px 0px;
+    border-radius: 30px 50px 50px 30px;
 }
 
 .modal {
-    background-color: rgb(147, 248, 248);
+    background-color: rgb(89, 217, 217);
     width: 318px;
     height: 50px;
     margin-bottom: 10px;
@@ -76,6 +88,7 @@ margin: 0 auto;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
+    border-radius: 15px;
 }
 
 .imgwrap {
@@ -88,3 +101,5 @@ img {
     height: 100%;
 }
         
+
+

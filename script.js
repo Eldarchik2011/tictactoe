@@ -1,7 +1,7 @@
 let cells = document.querySelectorAll('#array td')
 let modal = document.querySelector('#modal')
 let wrapper = document.querySelector('.wrapper')
-
+let refreshbtn = document.querySelector('.refresbtn')
 //значение this - это обьект перед точкой, который используется для вызова метода
 function start(cells) {
     let i = 0
@@ -51,3 +51,9 @@ function outcome(cells) {
 }
 
 start(cells);
+
+refreshbtn.addEventListener('click', ()=> {
+    for(let cell of cells) {
+        cell.textContent = '';
+    }
+})
