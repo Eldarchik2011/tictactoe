@@ -2,12 +2,23 @@ let cells = document.querySelectorAll('#array td')
 let modal = document.querySelector('#modal')
 let wrapper = document.querySelector('.wrapper')
 let refreshbtn = document.querySelector('.refresbtn')
+
+let refresh = document.querySelector('.refresh')
+// refresh.addEventListener('click', ()=>{
+//     location.reload()
+// })
+
+
 //значение this - это обьект перед точкой, который используется для вызова метода
 function start(cells) {
+    let gameover = false;
     let i = 0
     for (let cell of cells) {
 
         cell.addEventListener('click', function step() {
+            if (gameover) {
+                return;
+            }
             if (i % 2 == 0) {
                 this.textContent = '✕'
             } else {
@@ -17,9 +28,16 @@ function start(cells) {
             this.removeEventListener('click', step)
 
             if (outcome(cells)) {
+                gameover = true;
                 modal.style.display = 'block'
                 modal.textContent = `${this.textContent} won`
                 wrapper.style.height = '470px'
+                refresh.style.display = 'block'
+            } else if(i == 8) {
+                modal.style.display = 'block'
+                modal.textContent = `tie`
+                wrapper.style.height = '470px'
+                gameover = true;
             }
 
             i++;
@@ -50,10 +68,20 @@ function outcome(cells) {
     return false;
 }
 
-start(cells);
 
-refreshbtn.addEventListener('click', ()=> {
+ 
+
+
+refresh.addEventListener('click', ()=>{
+   
     for(let cell of cells) {
         cell.textContent = '';
+        
     }
+    modal.textContent = ``;
+    modal.style.display = 'none'
+    wrapper.style.height = '410px'
+    start(cells);
 })
+
+start(cells);
